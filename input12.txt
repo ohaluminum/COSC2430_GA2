@@ -1,0 +1,48 @@
+4
+5 8
+100 111
+100 100
+100 110
+110 10
+100 100
+7 11
+1010 0
+1010 11
+111 10
+10 10
+10 11
+11 11
+1010 111
+5 12
+10 0
+11 101
+1 1
+101 11
+0 10
+4 10
+10 0
+0 0
+10 10
+10 1000
+hbso
+hxds
+ltgp
+bdia
+xkwb
+bgvo
+wkbm
+cfhl
+vqfz
+lxno
+edhw
+gcio
+swft
+wgqj
+xpwa
+qayt
+wgsb
+hbso
+xalp
+xfwm
+jwbm
+iqte

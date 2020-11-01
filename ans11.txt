@@ -1,0 +1,3 @@
+valid inventory log
+INVALID INVENTORY LOG!!!
+2
