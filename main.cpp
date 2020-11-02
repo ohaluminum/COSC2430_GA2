@@ -27,6 +27,96 @@ int binaryToDecimal(int binary)
     return decimal;
 }
 
+// ---------------------------------------- HASH FUNCTION --------------------------------------------
+struct HashValue
+{
+    int first;
+    int second;
+
+    HashValue(int first, int second)
+    {
+        this->first = first;
+        this->second = second;
+    }
+};
+
+class CuckooHash
+{
+private:
+
+    //Crate a dynamic array to store KV table
+    HashValue** table;
+
+    //Confirm the table size
+    int size;
+
+public:
+
+    //Default constructor
+    CuckooHash(int tableSize = 10)
+    {
+        size = tableSize;
+        table = new HashValue*[size];
+
+        for (int i = 0; i < size; i++)
+        {
+            table[i] = nullptr;
+        }
+    }
+
+    //Default destructor
+    ~CuckooHash()
+    {
+        //Delete inner pointer
+        for (int i = 0; i < size; i++)
+        {
+            delete table[i];
+            table[i] = nullptr;
+        }
+
+        //Delete outer pointer
+        delete[] table;
+        table = nullptr;
+    }
+
+    //Create a insert function: Cuckoo Hashing
+    bool insert(HashValue x, int loopTime)
+    {
+        bool isInsert = false;
+
+        //The first position is empty
+        if (table[x.first] == nullptr)
+        {
+            table[x.first] = new HashValue(x.first, x.second);
+            isInsert = true;
+        }
+        //The first position is not empty, look for second position
+        else
+        {
+            //The second position is empty
+            if (table[x.second] == nullptr)
+            {
+                table[x.second] = new HashValue(x.first, x.second);
+                isInsert = true;
+            }
+            //The second position is not empty, insert at the first position 
+            else
+            {
+                //Retrive the previous value stored in the first position
+
+                delete table[x.first];
+                table[x.first] = nullptr;
+
+                table[x.first] = new HashValue(x.first, x.second);
+            }
+
+
+        }
+
+
+    }
+};
+
 // ---------------------------------------- MAIN FUNCTION --------------------------------------------
 
 int main(int argc, char* argv[])
